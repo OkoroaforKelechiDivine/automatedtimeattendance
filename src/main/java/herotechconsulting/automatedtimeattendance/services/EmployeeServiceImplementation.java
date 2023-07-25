@@ -13,6 +13,7 @@ public class EmployeeServiceImplementation implements EmployeeService {
 
     @Autowired
     private EmployeeRepository employeeRepository;
+
     @Override
     public Employee addEmployee(Employee employee) throws EmployeeExistException {
         Employee existingEmployeeName = employeeRepository.findByName(employee.getName());
@@ -21,6 +22,7 @@ public class EmployeeServiceImplementation implements EmployeeService {
         }
         return employeeRepository.save(employee);
     }
+
     @Override
     public Employee updateEmployee(String id, Employee employee) throws EmployeeExistException {
         Employee existingEmployee = employeeRepository.findById(id).orElseThrow(() -> new EmployeeExistException("Employee with ID: " + id + " couldn't be found in the system'"));
