@@ -11,8 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -63,4 +62,11 @@ public class EmployeeControllerTest {
                 .andReturn();
     }
 
+    @Test
+    public void test_findAllEmployees() throws Exception {
+        this.mockMvc.perform(get("/employees"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andReturn();
+    }
 }
