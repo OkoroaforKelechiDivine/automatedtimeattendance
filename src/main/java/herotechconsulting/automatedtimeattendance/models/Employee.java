@@ -18,4 +18,16 @@ public class Employee {
     private String name;
 
     private String role;
+
+    private Boolean clockedIn = false;
+
+    private Boolean onBreak = false;
+
+    public boolean isClockedIn() {
+        return clockedIn;
+    }
+
+    public boolean isOnBreak() {
+        return onBreak;
+    }
 }
