@@ -17,13 +17,17 @@ public class Attendance {
     @Id
     private String id;
 
-    private Employee employee;
+    private String employeeId;
 
     private LocalDateTime clockIn;
 
     private LocalDateTime clockOut;
 
+    private String action;
+
     private LocalDateTime startBreak;
+
+    private LocalDateTime timestamp;
 
     private LocalDateTime endBreak;
 }
