@@ -17,6 +17,8 @@ public class Attendance {
     @Id
     private String id;
 
+    private Employee employee;
+
     private LocalDateTime clockIn;
 
     private LocalDateTime clockOut;
