@@ -11,7 +11,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static com.mongodb.client.model.Filters.eq;
+import static org.hamcrest.Matchers.any;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -42,6 +46,22 @@ public class EmployeeControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(employee)))
                 .andExpect(status().isCreated())
+                .andDo(print())
+                .andReturn();
+    }
+
+    @Test
+    @DisplayName("Update employee")
+    public void test_updateEmployee() throws Exception {
+        String employeeId = "64c001d3fa7ffe1bc69b40ac";
+
+       employee.setRole("admin");
+       employee.setName("Okoroafor Kelechi Divine");
+
+        this.mockMvc.perform(put("/employees/{id}", employeeId)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(employee)))
+                .andExpect(status().isOk())
                 .andDo(print())
                 .andReturn();
     }
