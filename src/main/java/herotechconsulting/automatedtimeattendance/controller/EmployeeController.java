@@ -3,7 +3,7 @@ package herotechconsulting.automatedtimeattendance.controller;
 
 import herotechconsulting.automatedtimeattendance.exceptions.EmployeeExistException;
 import herotechconsulting.automatedtimeattendance.models.Employee;
-import herotechconsulting.automatedtimeattendance.services.EmployeeService;
+import herotechconsulting.automatedtimeattendance.services.EmployeeServiceImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ import java.util.NoSuchElementException;
 public class EmployeeController {
 
     @Autowired
-    private EmployeeService employeeService;
+    private EmployeeServiceImplementation employeeService;
 
     @PostMapping("")
     public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee){
