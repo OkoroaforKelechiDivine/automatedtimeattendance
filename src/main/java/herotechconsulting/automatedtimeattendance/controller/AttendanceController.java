@@ -3,7 +3,6 @@ package herotechconsulting.automatedtimeattendance.controller;
 
 import herotechconsulting.automatedtimeattendance.models.Attendance;
 import herotechconsulting.automatedtimeattendance.models.Employee;
-import herotechconsulting.automatedtimeattendance.services.AttendanceService;
 import herotechconsulting.automatedtimeattendance.services.AttendanceServiceImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
